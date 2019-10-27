@@ -12,12 +12,13 @@ print("Reading config...")
 config = configparser.ConfigParser()
 config.read("config.ini")
 
-bot = commands.Bot(command_prefix='>')
+bot = commands.Bot(command_prefix=config["discordbot"]["CommandPrefix"])
 
 commands = {}
 for command_file in [file for file in os.listdir("commands") if file.endswith(".py")]:
     command_file_path = os.path.join("commands", command_file)
     command_name = command_file[:-3]
+    
     spec = importlib.util.spec_from_file_location(command_name, command_file_path)
     botCommandSpec = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(botCommandSpec)
@@ -35,7 +36,7 @@ db.create_tables([Ant, Colony])
 @bot.event
 async def on_message(message):
     #TODO: move this logic into some sort of command processor
-    if message.content.startswith(">"):
+    if message.content.startswith(config["discordbot"]["CommandPrefix"]):
         words = message.content.partition(' ')
         requested_command = words[0][1:]
         if requested_command in commands:
@@ -49,3 +50,5 @@ async def on_ready():
     print(bot.user.id)
 
 bot.run(config["discordbot"]["Token"])
+
+
