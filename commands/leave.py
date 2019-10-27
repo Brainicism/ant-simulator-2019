@@ -10,7 +10,7 @@ class BotCommand:
 
     async def handle(self, message, command, arguments):
         if Users.select().where((Users.discord_id == message.author.id) & (Users.server_id == message.guild.id)):
-	        Users.get((Users.discord_id == message.author.id) & (Users.server_id == message.guild.id)).delete_instance()
+	        Users.delete().where((Users.discord_id == message.author.id) & (Users.server_id == message.guild.id)).execute()
 	        await message.channel.send('You have killed your queen ant.')
         else:
             await message.channel.send('You are not a part of this game.')
