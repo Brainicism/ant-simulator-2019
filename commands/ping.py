@@ -3,7 +3,7 @@ class BotCommand:
         self.client = client
 
     def aliases(self):
-        return ["ping", "pong","umi"]
+        return ["ping", "pong", "umi"]
 
     async def handle(self, message, command, arguments):
         if command == "ping":
