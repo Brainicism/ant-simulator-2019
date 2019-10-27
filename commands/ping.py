@@ -12,3 +12,5 @@ class BotCommand:
             await message.channel.send("Ping!")
         if command == "umi":
             await message.channel.send("Bzzzzz")
+        if command == "kpop":
+            await message.channel.send("I love kpop")
