@@ -52,4 +52,5 @@ async def on_ready():
     print(bot.user.name)
     print(bot.user.id)
 
+
 bot.run(config["discordbot"]["Token"])
