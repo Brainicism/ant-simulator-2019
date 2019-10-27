@@ -1,6 +1,6 @@
 from peewee import *
 from .base_model import BaseModel
 
-class Forage_events(BaseModel):
+class ForageEvents(BaseModel):
     event_description = CharField()
     event_rarity = CharField()
