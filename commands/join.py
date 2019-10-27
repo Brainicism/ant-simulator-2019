@@ -9,6 +9,5 @@ class BotCommand:
         return ["join"]
 
     async def handle(self, message, command, arguments):
-        if command == "join":
-            Users.create(discord_id=str(message.author.id), server_id=str(message.guild.id))
-            await message.channel.send('You have join the game!')
+        Users.create(discord_id=str(message.author.id), server_id=str(message.guild.id))
+        await message.channel.send('You have joined the game!')
