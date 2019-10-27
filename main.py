@@ -1,7 +1,10 @@
 import discord
 import configparser
-from models.ant import Ant
+from models.ants import Ants
 from models.colony import Colony
+from models.forage_events import Forage_events
+from models.species import Species
+from models.users import Users
 from discord.ext import commands
 from peewee import *
 from os.path import dirname, basename
@@ -18,7 +21,7 @@ commands = {}
 for command_file in [file for file in os.listdir("commands") if file.endswith(".py")]:
     command_file_path = os.path.join("commands", command_file)
     command_name = command_file[:-3]
-    
+
     spec = importlib.util.spec_from_file_location(command_name, command_file_path)
     botCommandSpec = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(botCommandSpec)
@@ -30,7 +33,7 @@ for command_file in [file for file in os.listdir("commands") if file.endswith(".
 print("Starting database...")
 db = SqliteDatabase('main.db')
 db.connect()
-db.create_tables([Ant, Colony])
+db.create_tables([Ants, Colony, Species, Forage_events, Users])
 
 
 @bot.event
@@ -50,5 +53,3 @@ async def on_ready():
     print(bot.user.id)
 
 bot.run(config["discordbot"]["Token"])
-
-
