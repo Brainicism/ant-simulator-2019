@@ -5,6 +5,6 @@ from .base_model import BaseModel
 class Ants(BaseModel):
     colony_id = ForeignKeyField(Colony, to_field="id")
     name = CharField()
-    type = CharField()
+    role = CharField()
     life_stage = IntegerField()
     birth_date = DateTimeField()
