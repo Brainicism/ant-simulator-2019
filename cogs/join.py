@@ -4,16 +4,16 @@ from peewee import *
 from models.ants import Ants
 from models.colony import Colony
 from models.users import Users
+from discord.ext import commands
 
-class BotCommand:
+class Join(commands.Cog):
     def __init__(self, client):
         self.client = client
 
-    def aliases(self):
-        return ["join"]
-
-    async def handle(self, message, command, arguments):
+    @commands.command()
+    async def join(self, ctx):
         species = ['Camponotus', 'Yellow Crazy Ants']
+        message = ctx.message
         if not Users.select().where((Users.discord_id == message.author.id) & (Users.server_id == message.guild.id)):
             Users.insert(discord_id=str(message.author.id), server_id=str(message.guild.id)).execute()
             colony_id = Colony.insert(
