@@ -15,7 +15,7 @@ print("Reading config...")
 config = configparser.ConfigParser()
 config.read("config.ini")
 
-bot = commands.Bot(command_prefix=config["discordbot"]["CommandPrefix"])
+bot = discord.Client()
 
 commands = {}
 for command_file in [file for file in os.listdir("commands") if file.endswith(".py")]:
