@@ -10,11 +10,9 @@ class BotCommand:
     def __init__(self, client):
         self.client = client
 
-    def aliases(self):
-        return ["birth", "egg"]
-
-    async def handle(self, message, command, arguments):
-        
+    @commands.command(aliases=["egg"])
+    async def join(self, ctx):
+        message = ctx.message
         if Users.select().where((Users.discord_id == message.author.id) & (Users.server_id == message.guild.id)):
             num_egg = random.randint(0,10)
             colony_id = Colony.select().where((Colony.discord_id == message.author.id) & (Colony.server_id == message.guild.id)).get()
