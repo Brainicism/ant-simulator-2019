@@ -6,7 +6,7 @@ from models.ants import Ants
 from models.colony import Colony
 from models.users import Users
 
-class BotCommand:
+class Birth(commands.Cog):
     def __init__(self, client):
         self.client = client
 
