@@ -1,3 +1,4 @@
+import datetime
 from peewee import *
 from .colony import Colony
 from .base_model import BaseModel
@@ -7,4 +8,4 @@ class Ants(BaseModel):
     name = CharField()
     type = CharField()
     life_stage = IntegerField()
-    birth_date = DateTimeField()
+    birth_date = DateTimeField(default=datetime.datetime.now)
