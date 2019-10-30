@@ -25,7 +25,6 @@ class Join(commands.Cog):
                 colony_name=message.author.name + '\'s Colony',
                 current_food_supply=100,
                 max_food_supply=100,
-                species_id=species.id
             ).execute()
             Ants.insert(
                 colony_id=colony_id,
