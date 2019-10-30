@@ -25,7 +25,7 @@ class Join(commands.Cog):
             Ants.insert(
                 colony_id=colony_id,
                 name='sdfsdfsdf',
-                type='queen',
+                role='queen',
                 life_stage=3
             ).execute()
             await message.channel.send('You have joined the game!')
