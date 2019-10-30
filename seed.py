@@ -36,6 +36,7 @@ def seed():
         "forage_multiplier": 1.1
     }).execute()
 
+    db.close()
 
 if __name__ == '__main__':
     seed()
