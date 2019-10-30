@@ -4,7 +4,7 @@ from .species import Species
 from .base_model import BaseModel
 
 class Colony(BaseModel):
-    user_id = ForeignKeyField(Users, to_field="discord_id")
+    discord_id = ForeignKeyField(Users, to_field="discord_id", on_delete="CASCADE")
+    server_id = ForeignKeyField(Users, to_field="server_id",  on_delete="CASCADE")
     species_id = ForeignKeyField(Species, to_field="id")
-    server_id = CharField()
     colony_name = CharField()

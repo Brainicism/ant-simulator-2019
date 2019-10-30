@@ -6,4 +6,5 @@ class Users(BaseModel):
     server_id = CharField()
 
     class Meta:
+        primary_key = CompositeKey('discord_id', 'server_id')
         constraints = [SQL("UNIQUE(discord_id, server_id)")]
