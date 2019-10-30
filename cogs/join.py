@@ -1,5 +1,6 @@
 import random
 import discord
+import names
 from peewee import *
 from models.ants import Ants
 from models.colony import Colony
@@ -25,7 +26,7 @@ class Join(commands.Cog):
             ).execute()
             Ants.insert(
                 colony_id=colony_id,
-                name='sdfsdfsdf',
+                name= names.get_full_name(gender= "female"),
                 role='queen',
                 life_stage=3
             ).execute()

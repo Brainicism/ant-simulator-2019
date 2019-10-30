@@ -1,3 +1,4 @@
+import names
 from peewee import *
 from models.ants import Ants
 from models.colony import Colony
@@ -22,5 +23,5 @@ colony_id = Colony.insert(
     species_id=0,
     colony_name=f"Epic Colony {discord_id}"
 ).execute()
-test_ants = [{"colony_id": colony_id, "name": f"ant-{str(x)}", "role": 'worker', "life_stage": 3 } for x in range(0,10)]
+test_ants = [{"colony_id": colony_id, "name": names.get_full_name(), "role": 'worker', "life_stage": 3 } for x in range(0,10)]
 Ants.insert_many(test_ants).execute()
