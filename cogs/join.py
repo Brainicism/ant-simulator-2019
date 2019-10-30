@@ -18,7 +18,7 @@ class Join(commands.Cog):
             user_id = Users.insert(discord_id=str(message.author.id), server_id=str(message.guild.id)).execute()
             colony_id = Colony.insert(
                 user_id=user_id,
-                species_id=random.choice(species),
+                species_id=species.id,
                 colony_name=message.author.name + '\'s Colony',
                 current_food_supply=100,
                 max_food_supply=100
