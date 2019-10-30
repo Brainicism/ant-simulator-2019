@@ -15,10 +15,9 @@ class Join(commands.Cog):
         species = ['Camponotus', 'Yellow Crazy Ants']
         message = ctx.message
         if not Users.select().where((Users.discord_id == message.author.id) & (Users.server_id == message.guild.id)):
-            Users.insert(discord_id=str(message.author.id), server_id=str(message.guild.id)).execute()
+            user_id = Users.insert(discord_id=str(message.author.id), server_id=str(message.guild.id)).execute()
             colony_id = Colony.insert(
-                discord_id=str(message.author.id),
-                server_id=str(message.guild.id),
+                user_id=user_id,
                 species_id=random.choice(species),
                 colony_name=message.author.name + '\'s Colony'
             ).execute()
