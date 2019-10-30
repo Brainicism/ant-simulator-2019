@@ -7,3 +7,5 @@ class Colony(BaseModel):
     user_id = ForeignKeyField(Users, on_delete="CASCADE")
     species_id = ForeignKeyField(Species, to_field="id")
     colony_name = CharField()
+    current_food_supply = IntegerField()
+    max_food_supply = IntegerField()
