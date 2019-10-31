@@ -4,6 +4,7 @@ from models.colony import Colony
 from models.users import Users
 from models.species import Species
 from models.forage_events import ForageEvents
+from forage_event_data import *
 
 def seed():
     print("Seeding database...")
@@ -37,6 +38,16 @@ def seed():
         "strength_multiplier": 1.1,
         "forage_multiplier": 1.1
     }).execute()
+
+    forage_event_id = 1
+    for event in EVENT_DATA:
+        ForageEvents.replace({
+            "id": forage_event_id,
+            "event_description": EVENT_DATA[event]["description"],
+            "event_rarity": EVENT_DATA[event]["rarity"],
+            "event_death_mult": EVENT_DATA[event]["death_mult"],
+            "event_food_mult": EVENT_DATA[event]["food_mult"],
+        })
 
     db.close()
 
