@@ -40,14 +40,14 @@ def seed():
     }).execute()
 
     forage_event_id = 1
-    for event in EVENT_DATA:
+    for event in FORAGE_EVENT_DATA:
         ForageEvents.replace({
             "id": forage_event_id,
-            "event_description": EVENT_DATA[event]["description"],
-            "event_rarity": EVENT_DATA[event]["rarity"],
-            "event_death_multiplier": EVENT_DATA[event]["death_multiplier"],
-            "event_food_multiplier": EVENT_DATA[event]["food_multiplier"],
-            "image_url": EVENT_DATA[event]["image_url"]
+            "event_description": FORAGE_EVENT_DATA[event]["description"],
+            "event_rarity": FORAGE_EVENT_DATA[event]["rarity"],
+            "event_death_multiplier": FORAGE_EVENT_DATA[event]["death_multiplier"],
+            "event_food_multiplier": FORAGE_EVENT_DATA[event]["food_multiplier"],
+            "image_url": FORAGE_EVENT_DATA[event]["image_url"]
         }).execute()
         forage_event_id += 1
 

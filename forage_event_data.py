@@ -1,4 +1,4 @@
-EVENT_DATA = {
+FORAGE_EVENT_DATA = {
     "small_event_enemy1" : { "description": "During the forage your ants ran into a Solifugae (Camel Spider). " +
                                             "With its powerful pincer it kills a few of your foragers. " +
                                             "However, your ants surround and overwhelm the lone target, quickly taking it down.",
