@@ -6,6 +6,7 @@ from models.forage_events import ForageEvents
 from models.species import Species
 from models.users import Users
 from discord.ext import commands
+import seed
 from peewee import *
 from os.path import dirname, basename
 import importlib.util
@@ -24,10 +25,12 @@ bot.add_cog(Birth(bot))
 bot.add_cog(Ping(bot))
 
 print("Starting database...")
+
+import os.path
+if not os.path.isfile("main.db"):
+    seed.seed()
 db = SqliteDatabase('main.db')
 db.connect()
-db.create_tables([Ants, Colony, Species, ForageEvents, Users])
-
 @bot.event
 async def on_ready():
     print('Logged in as')
