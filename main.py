@@ -11,7 +11,6 @@ from os.path import dirname, basename
 import importlib.util
 import os
 from cogs.game import Game
-from cogs.leave import Leave
 from cogs.birth import Birth
 from cogs.ping import Ping
 
