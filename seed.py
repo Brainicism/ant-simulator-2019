@@ -47,7 +47,8 @@ def seed():
             "event_rarity": EVENT_DATA[event]["rarity"],
             "event_death_mult": EVENT_DATA[event]["death_mult"],
             "event_food_mult": EVENT_DATA[event]["food_mult"],
-        })
+            "image_url": EVENT_DATA[event]["image_url"]
+        }).execute()
 
     db.close()
 
