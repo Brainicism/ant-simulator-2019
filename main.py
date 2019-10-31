@@ -13,8 +13,8 @@ from peewee import *
 
 import seed
 from cogs.birth import Birth
-from cogs.join import Join
-from cogs.leave import Leave
+from cogs.game import Game
+from cogs.birth import Birth
 from cogs.ping import Ping
 from event_loop import trigger
 from models.ants import Ants
@@ -28,8 +28,7 @@ config = configparser.ConfigParser()
 config.read("config.ini")
 
 bot = commands.Bot(command_prefix=config["discordbot"]["CommandPrefix"], description='A Rewrite Cog Example')
-bot.add_cog(Join(bot))
-bot.add_cog(Leave(bot))
+bot.add_cog(Game(bot))
 bot.add_cog(Birth(bot))
 bot.add_cog(Ping(bot))
 
