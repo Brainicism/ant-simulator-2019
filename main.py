@@ -27,7 +27,7 @@ print("Reading config...")
 config = configparser.ConfigParser()
 config.read("config.ini")
 
-bot = commands.Bot(command_prefix=config["discordbot"]["CommandPrefix"], description='A Rewrite Cog Example')
+bot = commands.Bot(command_prefix=config["discordbot"]["CommandPrefix"], description="A Rewrite Cog Example")
 bot.add_cog(Game(bot))
 bot.add_cog(Birth(bot))
 bot.add_cog(Ping(bot))
@@ -36,11 +36,11 @@ print("Starting database...")
 
 if not os.path.isfile("main.db"):
     seed.seed()
-db = SqliteDatabase('main.db')
+db = SqliteDatabase("main.db")
 db.connect()
 @bot.event
 async def on_ready():
-    print('Logged in as')
+    print("Logged in as")
     print(bot.user.name)
     print(bot.user.id)
 
