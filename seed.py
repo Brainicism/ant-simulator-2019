@@ -45,10 +45,11 @@ def seed():
             "id": forage_event_id,
             "event_description": EVENT_DATA[event]["description"],
             "event_rarity": EVENT_DATA[event]["rarity"],
-            "event_death_mult": EVENT_DATA[event]["death_mult"],
-            "event_food_mult": EVENT_DATA[event]["food_mult"],
+            "event_death_multiplier": EVENT_DATA[event]["death_multiplier"],
+            "event_food_multiplier": EVENT_DATA[event]["food_multiplier"],
             "image_url": EVENT_DATA[event]["image_url"]
         }).execute()
+        forage_event_id += 1
 
     db.close()
 
