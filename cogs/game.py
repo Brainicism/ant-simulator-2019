@@ -22,28 +22,28 @@ class Game(commands.Cog):
             colony_id = Colony.insert(
                 user_id=user_id,
                 species_id=species.id,
-                colony_name=message.author.name + '\'s Colony',
+                colony_name=message.author.name + "'s Colony",
                 current_food_supply=100,
                 max_food_supply=100
             ).execute()
             Ants.insert(
                 colony_id=colony_id,
                 name= names.get_full_name(gender= "female"),
-                role='queen',
+                role="queen",
                 life_stage=3
             ).execute()
-            await message.channel.send('You have joined the game!')
+            await message.channel.send("You have joined the game!")
             embed = discord.Embed(title=f"You have selected {species.species_name}", description=f"HP: {species.hp_multiplier} Forage: {species.forage_multiplier}", color=0x00ff00)
             embed.set_image(url = species.image_url)
             await message.channel.send(embed=embed)
         else:
-            await message.channel.send('You have already joined this game.')
+            await message.channel.send("You have already joined this game.")
 
     @commands.command()
     async def leave(self, ctx):
         message = ctx.message
         if Users.select().where((Users.discord_id == message.author.id) & (Users.server_id == message.guild.id)):
             Users.delete().where((Users.discord_id == message.author.id) & (Users.server_id == message.guild.id)).execute()
-            await message.channel.send('You have killed your queen ant.')
+            await message.channel.send("You have killed your queen ant.")
         else:
-            await ctx.send('You are not a part of this game.')
+            await ctx.send("You are not a part of this game.")
