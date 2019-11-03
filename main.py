@@ -36,8 +36,7 @@ bot.add_cog(Ping(bot))
 
 print("Starting database...")
 
-if not os.path.isfile("main.db"):
-    seed.seed()
+seed.seed()
 db = SqliteDatabase("main.db")
 db.connect()
 @bot.event
