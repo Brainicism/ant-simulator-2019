@@ -7,7 +7,7 @@ from models.ants import Ants
 from models.colony import Colony
 from models.users import Users
 from discord.ext import commands
-
+from constants import AntRole
 class Birth(commands.Cog):
     def __init__(self, client):
         self.client = client
@@ -19,7 +19,8 @@ class Birth(commands.Cog):
         if user_id is not None:
             num_egg = random.randint(0,10)
             colony_id = Colony.get(Colony.user == user_id).id
-            eggs = [(colony_id, names.get_full_name(), "random type", 0) for x in range(num_egg)]
+            #TODO: logic to assign role
+            eggs = [(colony_id, names.get_full_name(), AntRole.WORKER, 0) for x in range(num_egg)]
             Ants.insert_many(eggs, fields=[Ants.colony, Ants.name, Ants.role, Ants.life_stage]).execute()
             await message.channel.send("You have spawned %s egg(s)." % num_egg)
         else:

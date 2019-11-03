@@ -6,6 +6,8 @@ from models.colony import Colony
 from models.users import Users
 from models.species import Species
 from models.forage_events import ForageEvents
+from constants import AntRole, LifeStage
+
 db = SqliteDatabase('main.db')
 db.connect()
 db.create_tables([Ants, Colony, Species, ForageEvents, Users])
@@ -25,5 +27,5 @@ colony_id = Colony.insert(
     current_food_supply=100,
     max_food_supply=100
 ).execute()
-test_ants = [{"colony_id": colony_id, "name": names.get_full_name(), "role": 'worker', "life_stage": 3} for x in range(0, 10)]
+test_ants = [{"colony_id": colony_id, "name": names.get_full_name(), "role": AntRole.WORKER, "life_stage": LifeStage.ADULT} for x in range(0, 10)]
 Ants.insert_many(test_ants).execute()
