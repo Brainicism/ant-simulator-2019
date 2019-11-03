@@ -1,5 +1,6 @@
 import random
 import time
+import names
 
 from peewee import *
 from models.ants import Ants
@@ -18,7 +19,7 @@ class Birth(commands.Cog):
         if user_id is not None:
             num_egg = random.randint(0,10)
             colony_id = Colony.get(Colony.user_id == user_id).id
-            eggs = [(colony_id, "random name", "random type", 0) for x in range(num_egg)]
+            eggs = [(colony_id, names.get_full_name(), "random type", 0) for x in range(num_egg)]
             Ants.insert_many(eggs, fields=[Ants.colony_id, Ants.name, Ants.role, Ants.life_stage]).execute()
             await message.channel.send("You have spawned %s egg(s)." % num_egg)
         else:
