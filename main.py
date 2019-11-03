@@ -47,7 +47,7 @@ async def on_ready():
 
 
 def run_event_loop():
-    schedule.every(10).minutes.do(trigger)
+    schedule.every(10).minutes.do(trigger, client=bot)
     while True:
         schedule.run_pending()
         time.sleep(1)
