@@ -19,7 +19,7 @@ server_id = config["seed"]["ServerId"]
 
 user_id = Users.replace(discord_id=discord_id, server_id=server_id).execute()
 colony_id = Colony.insert(
-    user_id=user_id,
+    user=user_id,
     species_id=0,
     colony_name=f"Epic Colony {discord_id}",
     current_food_supply=100,
