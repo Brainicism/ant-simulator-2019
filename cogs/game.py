@@ -20,14 +20,14 @@ class Game(commands.Cog):
         if not Users.select().where((Users.discord_id == message.author.id) & (Users.server_id == message.guild.id)):
             user_id = Users.insert(discord_id=str(message.author.id), server_id=str(message.guild.id)).execute()
             colony_id = Colony.insert(
-                user_id=user_id,
-                species_id=species.id,
+                user=user_id,
+                species=species.id,
                 colony_name=message.author.name + "'s Colony",
                 current_food_supply=100,
                 max_food_supply=100
             ).execute()
             Ants.insert(
-                colony_id=colony_id,
+                colony=colony_id,
                 name= names.get_full_name(gender= "female"),
                 role="queen",
                 life_stage=3
