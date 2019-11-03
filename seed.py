@@ -4,13 +4,14 @@ from models.colony import Colony
 from models.users import Users
 from models.species import Species
 from models.forage_events import ForageEvents
+from models.shop_items import Shop_items
 from forage_event_data import *
 
 def seed():
     print("Seeding database...")
     db = SqliteDatabase('main.db')
     db.connect()
-    db.create_tables([Ants, Colony, Species, ForageEvents, Users])
+    db.create_tables([Ants, Colony, Species, ForageEvents, Shop_items, Users])
 
     Species.replace({
         "id": 1,
@@ -20,7 +21,6 @@ def seed():
         "strength_multiplier": 1.0,
         "forage_multiplier": 0.75
     }).execute()
-
     Species.replace({
         "id": 2,
         "species_name": "Yellow Crazy Ants",
@@ -29,7 +29,6 @@ def seed():
         "strength_multiplier": 1.25,
         "forage_multiplier": 1.0
     }).execute()
-
     Species.replace({
         "id": 3,
         "species_name": "Fire Ants",
@@ -50,6 +49,19 @@ def seed():
             "image_url": FORAGE_EVENT_DATA[event]["image_url"]
         }).execute()
         forage_event_id += 1
+
+    Shop_items.replace({
+        "id": 1,
+        "name": "Food Capacity",
+        "description": "",
+        "price": 40
+    }).execute()
+    Shop_items.replace({
+        "id": 2,
+        "name": "Ant Capacity",
+        "description": "",
+        "price": 50
+    }).execute()
 
     db.close()
 
