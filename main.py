@@ -20,7 +20,7 @@ from event_loop import trigger
 from models.ants import Ants
 from models.colony import Colony
 from models.forage_events import ForageEvents
-from models.shop_items import Shop_items
+from models.shop_items import ShopItems
 from models.species import Species
 from models.users import Users
 
