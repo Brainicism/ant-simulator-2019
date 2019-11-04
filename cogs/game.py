@@ -7,7 +7,7 @@ from models.colony import Colony
 from models.users import Users
 from models.species import Species
 from discord.ext import commands
-
+from constants import AntRole
 
 class Game(commands.Cog):
     def __init__(self, client):
@@ -29,7 +29,7 @@ class Game(commands.Cog):
             Ants.insert(
                 colony=colony_id,
                 name= names.get_full_name(gender= "female"),
-                role="queen",
+                role=AntRole.QUEEN,
                 life_stage=3
             ).execute()
             await message.channel.send("You have joined the game!")
