@@ -28,7 +28,7 @@ print("Reading config...")
 config = configparser.ConfigParser()
 config.read("config.ini")
 
-bot = commands.Bot(command_prefix=config["discordbot"]["CommandPrefix"], description="A Rewrite Cog Example")
+bot = commands.Bot(command_prefix=config["discordbot"]["CommandPrefix"])
 bot.add_cog(Game(bot))
 bot.add_cog(Birth(bot))
 bot.add_cog(Shop(bot))
