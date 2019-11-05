@@ -22,5 +22,13 @@
         "image_url": "https://i.guim.co.uk/img/static/sys-images/Guardian/Pix/pictures/2014/12/8/1418073100561/44f3fbab-89c8-4a1f-95b5-b330cb6d8523-1020x612.jpeg?width=620&quality=85&auto=format&fit=max&s=ae46ffd7415131288c781d7985b0c2d8",
         "strength_multiplier": 1.1,
         "forage_multiplier": 1.1
+    },
+    {
+        "id": 4,
+        "species_name": "Cannibal Ants",
+        "hp_multiplier": 0.75,
+        "image_url": "https://cdn.discordapp.com/attachments/197012817134616577/641336897452638221/Screen_Shot_2019-11-05_at_1.03.36_PM.png",
+        "strength_multiplier": 1.5,
+        "forage_multiplier": 0.5
     }
 ]
